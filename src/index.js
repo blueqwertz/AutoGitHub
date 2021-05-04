@@ -12,18 +12,24 @@ const createWindow = () => {
     const mainWindow = new BrowserWindow({
         width: 700,
         height: 500,
+        frame: false,
         resizable: false,
+        show: false,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            enableRemoteModule: true,
         },
     })
 
-    mainWindow.setMenu(null)
+    // mainWindow.setMenu(null)
 
     // and load the index.html of the app.
     mainWindow.loadFile(path.join(__dirname, "index.html"))
 
+    mainWindow.once("ready-to-show", () => {
+        mainWindow.show()
+    })
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
 }
@@ -51,4 +57,4 @@ app.on("activate", () => {
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
+// code. You can also put them in separate files and import them here

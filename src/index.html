@@ -6,6 +6,20 @@
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
+        <header id="titlebar">
+            <div id="drag-region">
+                <div id="window-title">GitHub - Project Automation</div>
+                <div id="window-controls">
+                    <div class="button" id="min-button">
+                        <img class="icon" src="img/minimize.svg" draggable="false" />
+                    </div>
+
+                    <div class="button" id="close-button">
+                        <img class="icon" src="img/close.svg" draggable="false" />
+                    </div>
+                </div>
+            </div>
+        </header>
         <header>
             <img src="img/githublogo.svg" alt="" />
             <h1>GitHub - Project Automation</h1>
@@ -15,9 +29,27 @@
             <div class="select">
                 <div onclick="dropClick()" class="dropbtn"><span>Settings</span></div>
                 <div id="drop" class="dropdown-content">
-                    <a>Private</a>
-                    <a>Wiki</a>
-                    <a>Issues</a>
+                    <label class="form-label">
+                        <input id="private" type="checkbox" />
+                        <svg aria-hidden="true" fill="none" viewBox="0 0 16 16" version="1.1" height="16" width="16" class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check">
+                            <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+                        </svg>
+                        <span>Private</span>
+                    </label>
+                    <label class="form-label">
+                        <input id="issues" type="checkbox" />
+                        <svg aria-hidden="true" fill="none" viewBox="0 0 16 16" version="1.1" height="16" width="16" class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check">
+                            <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+                        </svg>
+                        <span>Issues</span>
+                    </label>
+                    <label class="form-label">
+                        <input id="wiki" type="checkbox" />
+                        <svg aria-hidden="true" fill="none" viewBox="0 0 16 16" version="1.1" height="16" width="16" class="octicon octicon-check SelectMenu-icon SelectMenu-icon--check">
+                            <path d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+                        </svg>
+                        <span>Wiki</span>
+                    </label>
                 </div>
             </div>
             <div class="create">
@@ -26,8 +58,11 @@
             </div>
         </main>
         <div class="folder">
-            <span>Project Folder: C:\Users\timli\Documents\Projects</span>
-            <a>Change</a>
+            <span id="selected-file">Project Folder: C:\Users\timli\Documents\Projects</span>
+            <a id="select-file">Change</a>
+        </div>
+        <div class="overlay">
+            <a>Select Folder</a>
         </div>
     </body>
     <script src="script.js"></script>

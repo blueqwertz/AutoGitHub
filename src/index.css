@@ -1,3 +1,126 @@
+#titlebar {
+    display: block;
+    position: fixed;
+    height: 25px;
+    width: 100%;
+    background: #1f2225;
+    user-select: none;
+    z-index: 5;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    transform: translate(-40px, -40px);
+    /* display: none; */
+}
+
+#titlebar #drag-region {
+    width: 100%;
+    height: 100%;
+    -webkit-app-region: drag;
+}
+
+#titlebar {
+    color: var(--font-color);
+}
+
+#window-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 30px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+#window-controls .button {
+    grid-row: 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+#min-button {
+    grid-column: 1;
+}
+#max-button,
+#restore-button {
+    grid-column: 2;
+}
+#close-button {
+    grid-column: 3;
+}
+
+#drag-region .title {
+    height: 50%;
+}
+
+#window-controls .icon {
+    width: 9px;
+    height: 9px;
+}
+
+#window-controls {
+    -webkit-app-region: no-drag;
+}
+
+#window-controls .button {
+    user-select: none;
+}
+#window-controls .button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+#window-controls .button:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#close-button:hover {
+    background: red !important;
+}
+#close-button:active {
+    background: rgb(238, 101, 101) !important;
+}
+#close-button:active .icon {
+    filter: invert(1);
+}
+
+#restore-button {
+    display: none !important;
+}
+
+#titlebar #drag-region {
+    display: grid;
+    grid-template-columns: auto 138px;
+}
+
+#window-title {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    overflow: hidden;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 12px;
+}
+
+#window-title span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.5;
+}
+
+.maximized #titlebar {
+    width: 100%;
+    padding: 0;
+}
+
+.maximized #restore-button {
+    display: flex !important;
+}
+
+.maximized #max-button {
+    display: none;
+}
+
 :root {
     --background: #22272e;
     --font-color: #b9c4cf;
@@ -9,14 +132,18 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: auto;
-    padding: 3rem;
     background-color: var(--background);
     color: var(--font-color);
+    margin: auto;
+    padding: 40px;
 }
 
 header {
     display: flex;
+}
+
+header:not(#titlebar) {
+    margin-top: 60px;
 }
 
 header img {
@@ -109,21 +236,50 @@ main .dropdown-content {
     border: 1px solid #444c56;
 }
 
-main .dropdown-content a {
-    color: var(--font-color);
-    padding: 3px 0px;
-    padding-left: 40px;
-    border-bottom: 1px solid #444c56;
-    text-decoration: none;
+.form-label {
     display: block;
-    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 10px;
+    border-bottom: 1px solid #444c56;
 }
 
-main .dropdown-content:last-child {
+.form-label:last-child {
     border-bottom: none;
 }
 
-main .dropdown-content a:hover {
+.form-label > input {
+    opacity: 0;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    outline: none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.form-label > input:checked {
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+.form-label > input:checked + svg {
+    outline: none;
+    fill: var(--font-color);
+}
+
+.form-label svg {
+    position: relative;
+    transform: translateY(2px);
+}
+
+main .dropdown-content label:hover {
     background-color: #2d333b;
 }
 
