@@ -328,3 +328,16 @@ a:hover {
 #folder {
     margin-top: 30px;
 }
+
+code {
+    font-family: monospace;
+    background-color: #1c1c1d;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 14px;
+    height: 26px;
+}
+
+.info {
+    margin-top: 20px;
+}

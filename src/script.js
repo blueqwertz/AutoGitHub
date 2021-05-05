@@ -29,7 +29,6 @@ for (let id of settingsArr) {
 }
 
 const remote = require("electron").remote
-const path = require("path")
 const win = remote.getCurrentWindow()
 
 document.onreadystatechange = (event) => {
