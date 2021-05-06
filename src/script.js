@@ -55,6 +55,7 @@ function handleWindowControls() {
     if (settings["path"].length > 0) {
         document.getElementById("main-content").classList.remove("hide")
         document.getElementById("folder").classList.add("hide")
+        document.getElementById("info").classList.add("hide")
     } else {
         document.getElementById("folder").classList.remove("hide")
     }
@@ -104,6 +105,7 @@ document.getElementById("folder").onclick = () => {
             if (!result.canceled) {
                 document.getElementById("main-content").classList.remove("hide")
                 document.getElementById("folder").classList.add("hide")
+                document.getElementById("info").classList.add("hide")
                 document.getElementById("selected-file").innerHTML = `Project Folder: ${result.filePaths[0]}`
                 settings["path"] = result.filePaths[0]
                 saveSettings()
