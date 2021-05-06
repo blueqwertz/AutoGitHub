@@ -330,10 +330,10 @@ a:hover {
 }
 
 code {
-    font-family: monospace;
-    background-color: #1c1c1d;
+    background-color: rgba(205, 217, 229, 0.15);
     border-radius: 4px;
     padding: 2px 5px;
+    margin: 2px;
     font-size: 14px;
     height: 26px;
 }
