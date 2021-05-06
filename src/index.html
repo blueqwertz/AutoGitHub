@@ -26,7 +26,7 @@
         </header>
         <div id="main-content" class="hide">
             <main>
-                <input type="text" id="projname" placeholder="Project Name" onkeypress="return event.charCode != 32" />
+                <input type="text" class="" id="projname" placeholder="Project Name" onkeypress="return event.charCode != 32" />
                 <div class="select">
                     <div onclick="dropClick()" class="dropbtn"><span>Settings</span></div>
                     <div id="drop" class="dropdown-content">
@@ -63,7 +63,7 @@
                 <a id="select-file">Change</a>
             </div>
         </div>
-        <div id="info" class="info">
+        <div id="info" class="info hide">
             You have to install the GitHub CLI<br /><br />
             Install Scoop in PowerShell: <br />
             <code>Set-ExecutionPolicy RemoteSigned -scope CurrentUser</code><br />

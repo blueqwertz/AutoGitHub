@@ -176,6 +176,10 @@ main input {
     transition: border 200ms;
 }
 
+main input.error {
+    border-color: red;
+}
+
 main input::placeholder {
     color: var(--font-secondary);
 }

@@ -68,6 +68,10 @@ function handleWindowControls() {
         win.close()
     })
 
+    document.getElementById("projname").oninput = () => {
+        document.getElementById("projname").classList.remove("error")
+    }
+
     toggleMaxRestoreButtons()
     win.on("maximize", toggleMaxRestoreButtons)
     win.on("unmaximize", toggleMaxRestoreButtons)
@@ -118,10 +122,13 @@ document.getElementById("create").onclick = () => {
     console.log(input, input.value)
     if (fs.existsSync(settings["path"] + "/" + input.value)) {
         input.value = ""
+        input.classList.add("error")
     } else if (input.value.length > 0) {
         let private = settings["settings"]["private"] ? "--private" : "--public"
         cmd(`cd "${settings["path"]}" & mkdir ${input.value} & cd ${input.value} & echo # ${input.value}>"README.md" & git init & gh repo create ${input.value} ${private} --confirm=true --enable-wiki=${settings["settings"]["wiki"]} --enable-issues=${settings["settings"]["issues"]} & git add . & git commit -m "init" & git push -u origin master & code .`)
         input.value = ""
+    } else {
+        input.classList.add("error")
     }
 }
 
